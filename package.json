@@ -8,9 +8,9 @@
   "private": false,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "main": "app.js",
+  "main": "mavod.js",
   "keywords": [
     "on-demand-video",
     "vod"
@@ -29,6 +29,16 @@
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",
     "serve-favicon": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-qunit": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "mocha": "^3.1.0"
   },
   "repository": {
     "type": "git",

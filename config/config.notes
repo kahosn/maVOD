@@ -1,0 +1,11 @@
+Ensure Index:
+1. When the application starts up, Mongoose automatically calls ensureIndex for each defined index in your schema. Mongoose will call ensureIndex for each index sequentially, and emit an 'index' event on the model when all the ensureIndex calls succeeded or when there was an error. While nice for development, it is recommended this behavior be disabled in production since index creation can cause a significant performance impact. 
+2. At application startup, Mongoose sends an ensureIndex command for each index declared in your Schema. As of Mongoose v3, indexes are created in the background by default. If you wish to disable the auto-creation feature and manually handle when indexes are created, set your Schemas autoIndex option to false and use the ensureIndexes method on your model.
+
+option: strict
+1. The strict option, (enabled by default), ensures that values passed to our model constructor that were not specified in our schema do not get saved to the db.
+2. This value can be overridden at the model instance level by passing a second boolean argument
+
+Mocha
+Passing arrow functions (“lambdas”) to Mocha is discouraged. Due to the lexical binding of this, such functions are unable to access the Mocha context. 
+
