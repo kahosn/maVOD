@@ -1,0 +1,21 @@
+{
+    "mongoose":{
+        "dbURL":"mongodb://mavodapp:1dovam@ds035006.mlab.com:35006/mavoddb",
+        "dbTestURL":"mongodb://mavodtester:1dovam@ds033966.mlab.com:33966/mavodtestdb",
+        "options":{
+            "autoIndex":false,
+            "schemaStrict":false
+        }
+    },
+    "directories":{
+        "bootstrap":{
+            "css":"/bootstrap/dist/css",
+            "fonts":"/bootstrap/dist/fonts",
+            "js":"/bootstrap/dist/js",
+            "components":"/bootstrap/js"    
+        }
+    },
+    "error":{
+        "dbConnection":"connection error:"
+    }
+}

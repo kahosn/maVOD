@@ -1,16 +1,41 @@
 const assert = require('chai').assert
 const mongoose = require('mongoose')
-const dbURL = 'mongodb://mavod:1dovam@ds035006.mlab.com:35006/mavoddb'
+const db = require('../logic/controllers/db.controller')
+const cfg = require('../config/mavodConfig.json')
+const User = require('../models/user.model')
 
-describe('#mongooseDBConnect()', function(){
-    let mongooseDBConnect = (url)=>{
-        mongoose.connect(url, (err)=>{
-            if(err)
-                throw err
-            done()    
+const dbTestURL = cfg.mongoose.dbTestURL
+
+describe(`#db.connect(${dbTestURL})`, ()=>{
+    it('A promise is returned then it resolves', (done)=>{
+        let connectPromise = db.connect(dbTestURL)
+        .then(()=>{
+            if(connectPromise instanceof Promise)
+                done()
+        }).catch((err)=>{
+            console.log(`ERROR DB: ${err}`)
+            done(err)
         })
-    }
-    it('Mongoose Connectes to MongoDB', function(){
-        mongooseDBConnect(dbURL)
+    })
+})
+
+describe('#User.create', ()=>{
+    it('Create a test User id123', ()=>{
+        User.create({ sessionId:'123' }, (err, user)=> {
+            if (err) 
+                done(err)
+            done()
+        })
+    })
+})
+
+describe('#user.save', ()=>{
+    it('Save a test user id456 to test DB', ()=>{
+        let user = new User({sessionId:'456'})
+        user.save((err)=> {
+            if (err) 
+                done(err)
+            done()
+        })
     })
 })

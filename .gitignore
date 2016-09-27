@@ -46,6 +46,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Node.js libraries
+# Node.js libraries directory and debug logs
 node_modules
-dist
+npm-debug.log.*
