@@ -1,0 +1,37 @@
+{
+  "name": "mavod",
+  "version": "0.0.1",
+  "author": "Khaled Aboul Hosn [https://linked/in/kahosn]-[https://github.com/kahosn]",
+  "license": "MIT",
+  "description": "Media app video-on-demand (mavod) is based on the following technologies: Node, Express, Bootstrap/JQuery, Mongoose,and MongoDB",
+  "homepage": "https://github.com/kahosn/maVOD#readme",
+  "private": false,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "main": "app.js",
+  "keywords": [
+    "on-demand-video",
+    "vod"
+  ],
+  "bugs": {
+    "url": "https://github.com/kahosn/maVOD/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.2.0",
+    "express": "^4.14.0",
+    "jquery": "^3.1.1",
+    "mongoose": "^4.5.10",
+    "morgan": "^1.7.0",
+    "pug": "^2.0.0-beta6",
+    "serve-favicon": "^2.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kahosn/maVOD.git"
+  }
+}
