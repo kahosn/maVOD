@@ -5,18 +5,27 @@ const morganLogger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 const db = require('./logic/controllers/db.controller')
-const cfg = require('../config/mavodConfig.json')
+const cfg = require('./config/mavodConfig.json')
 
 const routes = require('./routes/index')
 const users = require('./routes/users')
 
 const app = express()
 
+//Connect to the database specified in config
+db.connectPromise(cfg.mongoose.dbURL)
+.then(()=>{
+  console.log(`Connected to DB: ${cfg.mongoose.dbURL}`)
+})
+.catch ((err)=>{
+  console.log(err)
+})
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'pug')
 
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(morganLogger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -61,8 +70,5 @@ app.use(function(err, req, res, next) {
 app.locals.bootstrapCSS = cfg.directories.bootstrap.css
 app.locals.bootstrapJS = cfg.directories.bootstrap.js
 app.locals.componentsJS = cfg.directories.bootstrap.components
-
-//Connect to the database specified in config
-db.connect(cfg.mongoose.dbURL)
 
 module.exports = app

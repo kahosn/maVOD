@@ -4,7 +4,7 @@ const cfg = require('../../config/mavodConfig.json')
 //Will be using native promises
 mongoose.Promise = global.Promise
 
-module.exports.connect = (url)=>{
+module.exports.connectPromise = (url)=>{
     return new Promise((resolve, reject)=>{
         mongoose.connect(
             url, 
@@ -15,7 +15,15 @@ module.exports.connect = (url)=>{
                 resolve()    
             })
     })
-} 
+}
+
+module.exports.connectCallBack = (url, cb)=>{
+    mongoose.connect(url,{ config: {autoIndex: cfg.mongoose.options.autoIndex }}, (err)=>{
+        if(err)
+            cb(err)
+        cb()    
+    })
+}  
 
 module.exports.disconnect = ()=>{
     return new Promise((resolve, reject)=>{
@@ -27,11 +35,13 @@ module.exports.disconnect = ()=>{
     })    
 }
 
-let mavodDB = mongoose.connection
+let mavodDBConnection = mongoose.connection
 
-mavodDB.on('error', console.error.bind(console, cfg.error.connection))
+exports.getConnection = ()=>mavodDBConnection
 
-mavodDB.once('open', ()=> {
+mavodDBConnection.on('error', console.error.bind(console, cfg.error.connection))
+
+mavodDBConnection.once('open', ()=> {
   // we're connected!
 })
 

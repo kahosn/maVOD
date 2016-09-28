@@ -14,4 +14,13 @@ const requestVideos = exports.requestVideos = (restURL)=>{
     })
 }
 
+const retrieveVideo = exports.retrieveVideo = (id)=>{
+    let vid
+    video.getVideosEntries().forEach((v)=>{
+        if(v.id==id)
+            vid = v       
+    })
+    return vid
+}
+
 exports.getVideoModel = ()=> video
