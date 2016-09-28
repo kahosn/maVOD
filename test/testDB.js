@@ -1,13 +1,13 @@
 const assert = require('chai').assert
 const mongoose = require('mongoose')
 const db = require('../logic/controllers/db.controller')
-const cfg = require('../config/mavodConfig.json')
 const User = require('../models/user.model')
+const cfg = require('../config/mavodConfig.json')
 
 const dbTestURL = cfg.mongoose.dbTestURL
 
 describe(`#db.connect(${dbTestURL})`, ()=>{
-    it('A promise is returned then it resolves', (done)=>{
+    it('A promise is returned then it resolves with a connection', (done)=>{
         let connectPromise = db.connect(dbTestURL)
         .then(()=>{
             if(connectPromise instanceof Promise)

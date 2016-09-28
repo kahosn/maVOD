@@ -8,7 +8,9 @@
   "private": false,
   "scripts": {
     "start": "node ./bin/www",
-    "test": "mocha"
+    "test": "mocha",
+    "testDB":"mocha -f DB",
+    "testReq":"mocha -f Req"
   },
   "main": "mavod.js",
   "keywords": [
@@ -28,6 +30,8 @@
     "mongoose": "^4.5.10",
     "morgan": "^1.7.0",
     "pug": "^2.0.0-beta6",
+    "request": "^2.75.0",
+    "request-promise": "^4.1.1",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
