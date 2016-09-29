@@ -69,6 +69,7 @@ app.use(function(err, req, res, next) {
 })
 
 //Directories
+app.locals.jsLocal = cfg.directories.js.local
 app.locals.ajaxLocal = cfg.directories.ajax.local
 app.locals.jqueryDist = cfg.directories.jquery.dist
 app.locals.bootstrapCSS = cfg.directories.bootstrap.css

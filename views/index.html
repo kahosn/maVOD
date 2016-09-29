@@ -8,15 +8,28 @@
 
     <div class="container">
       <div class="col-xs-12">
+        <div>
 
-        <div class="page-header">
-            <h3>maVOD</h3>
-            <p>media app for Video-On-Demand Demo</p>
         </div>
-              
-        <%- carousel%>
+        <div id="spinner">
+          <div class="video-loader center"></div>
+          <h3 class="center">Preparing Your Videos! Please wait a moment...</h3>
+        </div>
+        <div id="carouselPlaceHolder" class="hidden">        
+          <nav class="navbar navbar-inverse">  
+            <button class="navbar-form btn btn-primary" type="button">
+              Watch History <span id="history" class="badge">0</span>
+            </button>                   
+            <span class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input id="search" type="search" class="form-control" placeholder="movie name">
+              </div>
+              <button type="submit" class="btn btn-primary">Search</button>
+            </span>
+          </nav>          
+          <%- carousel%>
+        </div><!-- #carouselPlaceHolder -->
 
-        <input id="search" type="search" placeholder="madov"/>
         <h2 id="results"></h2>
 
       </div><!-- .col-xs-12 -->
@@ -26,7 +39,7 @@
     <script src='<%=jqueryDist%>/jquery.min.js'></script>
     <script src='<%=bootstrapJS%>/bootstrap.min.js'></script>
     <script src='<%=ajaxLocal%>/apiReq.js'></script>
-    <script src='/javascripts/mavodCarousel.js'></script>
+    <script src='<%=jsLocal%>/mavodCarousel.js'></script>
 
   </body>
 </html>

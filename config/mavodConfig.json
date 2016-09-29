@@ -11,6 +11,9 @@
         "videosURL":"https://demo2697834.mockable.io/movies"
     },
     "directories":{
+        "js":{
+            "local":"/javascripts"
+        },
         "ajax":{
             "local":"/javascripts/ajax"
         },
