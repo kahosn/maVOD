@@ -23,7 +23,8 @@ db.connectPromise(cfg.mongoose.dbURL)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'html')
 
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 app.use(morganLogger('dev'))
@@ -31,6 +32,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'node_modules')))
 
 app.use('/', routes)
 app.use('/users', users)
@@ -67,6 +69,8 @@ app.use(function(err, req, res, next) {
 })
 
 //Directories
+app.locals.ajaxLocal = cfg.directories.ajax.local
+app.locals.jqueryDist = cfg.directories.jquery.dist
 app.locals.bootstrapCSS = cfg.directories.bootstrap.css
 app.locals.bootstrapJS = cfg.directories.bootstrap.js
 app.locals.componentsJS = cfg.directories.bootstrap.components

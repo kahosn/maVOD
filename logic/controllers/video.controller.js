@@ -7,6 +7,7 @@ const requestVideos = exports.requestVideos = (restURL)=>{
         console.log(`videos.totalCount ${videos.totalCount}`)
         video.setCount(videos.totalCount) 
         video.setVideosEntries(videos.entries)
+        return videos.entries
     })
     .catch((err)=>{
         console.log(`ERROR requestVideos: ${err}`)

@@ -1,0 +1,32 @@
+
+<html>
+  <head>
+    <title><%= title%></title>
+    <%- include('layout') -%>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="col-xs-12">
+
+        <div class="page-header">
+            <h3>maVOD</h3>
+            <p>media app for Video-On-Demand Demo</p>
+        </div>
+              
+        <%- carousel%>
+
+        <input id="search" type="search" placeholder="madov"/>
+        <h2 id="results"></h2>
+
+      </div><!-- .col-xs-12 -->
+    </div><!-- .container -->
+
+    <!--JavaScript (placed at the end of the document so the pages load faster)-->
+    <script src='<%=jqueryDist%>/jquery.min.js'></script>
+    <script src='<%=bootstrapJS%>/bootstrap.min.js'></script>
+    <script src='<%=ajaxLocal%>/apiReq.js'></script>
+    <script src='/javascripts/mavodCarousel.js'></script>
+
+  </body>
+</html>

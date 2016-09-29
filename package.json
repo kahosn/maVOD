@@ -26,11 +26,11 @@
     "bootstrap": "^3.3.7",
     "cookie-parser": "^1.4.3",
     "debug": "^2.2.0",
+    "ejs": "^2.5.2",
     "express": "^4.14.0",
     "jquery": "^3.1.1",
     "mongoose": "^4.5.10",
     "morgan": "^1.7.0",
-    "pug": "^2.0.0-beta6",
     "request": "^2.75.0",
     "request-promise": "^4.1.1",
     "serve-favicon": "^2.3.0"
