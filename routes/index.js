@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const videoController = require('../logic/controllers/video.controller')
+const historyController = require('../logic/controllers/history.controller')
 const builder = require('../logic/mavodBuilder')
 const cfg = require('../config/mavodConfig.json')
 
@@ -28,8 +29,16 @@ router.get('/videos', (req, res, next)=> {
       res.send (data)
     })        
     .catch((err)=>{
-        send ('')
+        res.send ('')
     })  
+})
+
+/* POST history API. */
+router.post('/history', (req, res, next)=>{
+  res.send('200')
+  /*historyController.save(req.sessionID, req.videoID, (err)=>{
+    res.send((err?'404':'200'))
+  })*/
 })
 
 module.exports = router

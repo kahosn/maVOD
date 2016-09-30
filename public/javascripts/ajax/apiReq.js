@@ -1,4 +1,14 @@
-$(document).ready(function() {
+
+let requestPlay = (videoId, url)=>{
+  let parameters = { videoID: videoId }
+  $.post('/history', parameters, (status)=>{
+    if(status=='404')
+      alert('Viewing history could not be saved!')
+    playVideo(url)
+  })
+}
+
+$(document).ready(()=> {
  $(()=>{
     let searchBox = $('#search')
     let results = $('#results')

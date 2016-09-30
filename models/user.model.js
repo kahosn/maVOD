@@ -8,11 +8,11 @@ let userSchema = new Schema(
     { strict: cfg.mongoose.options.schemaStrict }
 )
 
-let user = module.exports = mongoose.model('User', userSchema)
+let User = module.exports = mongoose.model('User', userSchema)
 
-user.ensureIndexes()
+User.ensureIndexes()
 
-user.on('index', (err)=> {
+User.on('index', (err)=> {
   if(err){
       //fail
   }

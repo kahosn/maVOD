@@ -47,21 +47,22 @@ let buildCarousel = exports.buildCarousel = ()=>{
         let itemActive = true                                                                     
         let content = ''
         let itemIndex = -1
+        let video
         content += carouselBegin
         for(let i=0;i<3;i++){
             content += outerSlideBegin(itemActive)
             itemActive = false
             for(let ii=0;ii<4;ii++){
                 itemIndex++
+                video = data[itemIndex]
                 content += innnerBoxBegin
                 content += `
-                                    <a href="#"><img src="${data[itemIndex].images[0].url}" alt=""></a>
+                                    <a href="#"><img src="${video.images[0].url}" alt=""></a>
                             `
                 content += innnerTextBegin
                 content += `
-                            <h4>${data[itemIndex].title}</h4>
-                            <p>${data[itemIndex].description}</p>
-                            <a class="btn btn-mini" href="#">» Read More</a>
+                            <h4>${video.title}</h4>
+                            <p><a href="#" class="btn btn-mini" onclick="requestPlay('${video.id}','${video.contents[0].url}')">» Play</a></p>                            
                     `
                 content += innerBoxEnd
             }

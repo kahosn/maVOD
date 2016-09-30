@@ -6,15 +6,17 @@
   </head>
   <body>
 
+        <div id="videoPlaceHolder" class="none">
+        </div><!-- #videoPlaceHolder -->
+
     <div class="container">
       <div class="col-xs-12">
-        <div>
 
-        </div>
         <div id="spinner">
           <div class="video-loader center"></div>
           <h3 class="center">Preparing Your Videos! Please wait a moment...</h3>
-        </div>
+        </div><!-- #spinner -->
+
         <div id="carouselPlaceHolder" class="hidden">        
           <nav class="navbar navbar-inverse">  
             <button class="navbar-form btn btn-primary" type="button">
@@ -38,8 +40,9 @@
     <!--JavaScript (placed at the end of the document so the pages load faster)-->
     <script src='<%=jqueryDist%>/jquery.min.js'></script>
     <script src='<%=bootstrapJS%>/bootstrap.min.js'></script>
-    <script src='<%=ajaxLocal%>/apiReq.js'></script>
     <script src='<%=jsLocal%>/mavodCarousel.js'></script>
+    <script src='<%=jsLocal%>/mavodVideo.js'></script>
+    <script src='<%=ajaxLocal%>/apiReq.js'></script>
 
   </body>
 </html>

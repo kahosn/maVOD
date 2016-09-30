@@ -13,13 +13,26 @@ a {
 .visible{
     visibility: visible
 }
-
+.block {
+  display: block
+}
+.none {
+  display: none
+}
 .center {    
   display: block;
   margin: auto;
   align-content: center;
   width: 100%;
 }
+
+video#mavodVideo { 
+  margin: auto; 
+  width: auto; 
+  height: auto;
+  min-width: 100%; 
+  min-height: 100%;
+  }
 
 .large-input {
   text-align: center;

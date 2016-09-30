@@ -1,8 +1,8 @@
-//$(window).on("load", function() {
-$(document).ready(()=>{  
+$(window).on("load", ()=> {
+//$(document).ready(()=>{  
     $('#carouselPlaceHolder').removeClass('hidden')
     $('.carousel').carousel({
-      //interval: 6000
+      interval: 0
     })
     $('#spinner').remove()
 })
