@@ -35,10 +35,16 @@ router.get('/videos', (req, res, next)=> {
 
 /* POST history API. */
 router.post('/history', (req, res, next)=>{
-  res.send('200')
-  /*historyController.save(req.sessionID, req.videoID, (err)=>{
-    res.send((err?'404':'200'))
-  })*/
+  historyController.save(req.sessionID, req.body.videoID)
+  res.send('')
+})
+
+/* GET history API. */
+router.get('/history', (req, res, next)=>{
+  historyController.findBySessionId(req.sessionID).then((list)=>{
+    console.log(`history list: ${list}`)
+    res.send(list)
+  })
 })
 
 module.exports = router

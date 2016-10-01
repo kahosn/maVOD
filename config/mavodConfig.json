@@ -8,7 +8,8 @@
         }
     },
     "api":{
-        "videosURL":"https://demo2697834.mockable.io/movies"
+        "videosURL":"https://demo2697834.mockable.io/movies",
+        "history":"/history"
     },
     "directories":{
         "js":{

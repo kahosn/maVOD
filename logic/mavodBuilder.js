@@ -62,7 +62,7 @@ let buildCarousel = exports.buildCarousel = ()=>{
                 content += innnerTextBegin
                 content += `
                             <h4>${video.title}</h4>
-                            <p><a href="#" class="btn btn-mini" onclick="requestPlay('${video.id}','${video.contents[0].url}')">» Play</a></p>                            
+                            <p><a href="#" class="btn btn-mini" onclick="requestPlay('${video.id}', '${video.contents[0].url}', '${video.contents[0].url}', '${video.contents[0].format}')">» Play</a></p>                            
                     `
                 content += innerBoxEnd
             }
@@ -75,26 +75,3 @@ let buildCarousel = exports.buildCarousel = ()=>{
         console.warn(err)
     })
 }
-
-/**
- *            <!--Outer Loop Slide -->
-              <div class="item active">
-                <ul class="thumbnails">
-                    <li class="col-sm-3"><!--Inner Loop Box -->
-                      <div class="fff">
-                        <div class="thumbnail"><!--Pic -->
-                          <a href="#"><img src="http://placehold.it/360x240" alt=""></a>
-                        </div>
-                        <div class="caption"><!--Text -->
-                          <h4>Praesent commodo</h4>
-                          <p>Nullam Condimentum Nibh Etiam Sem</p>
-                          <a class="btn btn-mini" href="#">» Read More</a>
-                        </div>
-                      </div>
-                    </li>                    
-                </ul>
-              </div>
-              <!--Outer Loop Slide -->
-
-              
- */

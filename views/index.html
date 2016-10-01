@@ -6,10 +6,10 @@
   </head>
   <body>
 
-        <div id="videoPlaceHolder" class="none">
-        </div><!-- #videoPlaceHolder -->
+    <div id="videoPlaceHolder" class="none">
+    </div><!-- #videoPlaceHolder -->
 
-    <div class="container">
+    <div id="container" class="container">
       <div class="col-xs-12">
 
         <div id="spinner">
@@ -18,16 +18,13 @@
         </div><!-- #spinner -->
 
         <div id="carouselPlaceHolder" class="hidden">        
-          <nav class="navbar navbar-inverse">  
-            <button class="navbar-form btn btn-primary" type="button">
-              Watch History <span id="history" class="badge">0</span>
-            </button>                   
-            <span class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input id="search" type="search" class="form-control" placeholder="movie name">
-              </div>
-              <button type="submit" class="btn btn-primary">Search</button>
-            </span>
+          <nav class="navbar navbar-inverse">            
+                <a class="navbar-form btn btn-primary" onclick="requestHistory()">
+                  Viewing History <span id="historyCount" class="badge">0</span>
+                </a>
+            <div class="navbar-form btn btn-primary" id="history" data-container="body" role="button" data-toggle="popover" 
+              data-placement="right" data-content="[Loading from DB...]">
+            </div>  
           </nav>          
           <%- carousel%>
         </div><!-- #carouselPlaceHolder -->
@@ -40,6 +37,8 @@
     <!--JavaScript (placed at the end of the document so the pages load faster)-->
     <script src='<%=jqueryDist%>/jquery.min.js'></script>
     <script src='<%=bootstrapJS%>/bootstrap.min.js'></script>
+    <script src='<%=componentsJS%>/tooltip.js'></script>
+    <script src='<%=componentsJS%>/popover.js'></script>
     <script src='<%=jsLocal%>/mavodCarousel.js'></script>
     <script src='<%=jsLocal%>/mavodVideo.js'></script>
     <script src='<%=ajaxLocal%>/apiReq.js'></script>

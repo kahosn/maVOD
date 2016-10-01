@@ -1,5 +1,5 @@
-$(window).on("load", ()=> {
-//$(document).ready(()=>{  
+//$(window).on("load", ()=> {
+$(document).ready(()=>{  
     $('#carouselPlaceHolder').removeClass('hidden')
     $('.carousel').carousel({
       interval: 0

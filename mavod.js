@@ -4,6 +4,7 @@ const favicon = require('serve-favicon')
 const morganLogger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+const session = require('express-session')
 const db = require('./logic/controllers/db.controller')
 const cfg = require('./config/mavodConfig.json')
 
@@ -31,6 +32,11 @@ app.use(morganLogger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser())
+app.use(session({
+  secret:'s3cr3t43xxxxKL',
+  resave: false,
+  saveUninitialized: true
+}))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'node_modules')))
 

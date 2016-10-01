@@ -1,10 +1,10 @@
-const playVideo = (url)=>{
+const playVideo = (url, format)=>{
     setUpForVideoPlay(url)  
 }
 
-const setUpForVideoPlay = (url)=>{ 
-    $('#carouselPlaceHolder').addClass('hidden')
-    $('#videoPlaceHolder').append(buildVideoElement(url))
+const setUpForVideoPlay = (url, format)=>{ 
+    $('#container').addClass('hidden')
+    $('#videoPlaceHolder').append(buildVideoElement(url, format))
     $('#videoPlaceHolder').removeClass('none')
     $('#videoPlaceHolder').addClass('block')  
     $('#mavodVideo').bind("ended", ()=>{
@@ -16,13 +16,13 @@ const setUpForVideoPlay = (url)=>{
 }
 
 const setUpForVideoBrowse = ()=>{
-    $('#carouselPlaceHolder').removeClass('hidden')
+    $('#container').removeClass('hidden')
     $('#videoPlaceHolder').removeClass('block')
     $('#videoPlaceHolder').addClass('none') 
     $('#mavodVideo').remove()  
 }
 
-const buildVideoElement = (url)=>{
+const buildVideoElement = (url, format)=>{
     let video = document.createElement('video')
     video.id = "mavodVideo"
     video.autoplay = true
@@ -30,7 +30,7 @@ const buildVideoElement = (url)=>{
     let source = document.createElement('source')
     source.id = "videoSrc"
     source.src = url
-    source.type="video/mp4"
+    source.type=`video/${format}`
     video.appendChild(source)
     return video   
 }
