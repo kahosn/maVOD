@@ -6,6 +6,7 @@ let requestPlay = (videoId, url, format='mp4')=>{
       alert('Viewing history could not be saved!')
     requestHistoryCount()  
   })
+  showVideoHistoryPopover(false)
   playVideo(url, format)
 }
 
@@ -14,18 +15,11 @@ let requestHistory = ()=>{
       let length = list.length
       let num = 1
       let text = ''
-      let title = `${length} ${length==1?'movie':'movies'} in session`
-      let template = '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+      let title = `${length} ${length==1?'movie':'movies'} in session`      
       list.forEach((history)=>{
-        text += ` [${num++}] [ ${history.videoId} ]  `
+        text += ` [${num++}] » ${history.videoId}   _ `
       })
-      $('#history').attr('html', true)
-      $('#history').attr('delay', 500)
-      $('#history').attr('data-trigger', 'focus')
-      $('#history').attr('template', template)
-      $('#history').attr('title', title)
-      $('#history').attr('data-content', text)
-      $('#history').popover('toggle')
+      setupVideoHistoryPopover(text, title)
   })
 }
 
@@ -39,6 +33,7 @@ $(document).ready(()=> {
   $(()=> {
     $('[data-toggle="popover"]').popover()
     requestHistoryCount()
+    $('container').on('click', ()=>showVideoHistoryPopover(false))
   })  
   $(()=>{
       let searchBox = $('#search')

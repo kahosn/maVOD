@@ -42,7 +42,6 @@ router.post('/history', (req, res, next)=>{
 /* GET history API. */
 router.get('/history', (req, res, next)=>{
   historyController.findBySessionId(req.sessionID).then((list)=>{
-    console.log(`history list: ${list}`)
     res.send(list)
   })
 })

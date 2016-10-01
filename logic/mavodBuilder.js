@@ -26,12 +26,12 @@ let buildCarousel = exports.buildCarousel = ()=>{
                             <!--Outer Loop Slide -->
                             <div class="item${isActive?' active':''}">
                               <ul class="thumbnails">`    
-    let innnerBoxBegin  = `     
+    let innnerBoxBegin  = (index, id, url, format)=> `     
                                 <li class="col-sm-3"><!--Inner Loop Box -->
                                   <div class="fff">
-                                    <div class="thumbnail"><!--Pic -->`
+                                    <a class="thumbnail" href="#" tabindex="${index+1}" ${(index+1)==1?'autofocus':''}  ${clickToPlay(id, url, format)}><div><!--Pic -->`
     let innnerTextBegin = `         
-                                    </div> 
+                                    </div></a> 
                                     <div class="caption"><!--Text -->` 
     let innerBoxEnd     = `       
                                     </div>
@@ -55,14 +55,16 @@ let buildCarousel = exports.buildCarousel = ()=>{
             for(let ii=0;ii<4;ii++){
                 itemIndex++
                 video = data[itemIndex]
-                content += innnerBoxBegin
+                content += innnerBoxBegin(itemIndex, video.id, video.contents[0].url, video.contents[0].format)
                 content += `
-                                    <a href="#"><img src="${video.images[0].url}" alt=""></a>
+                                    
+                                        <img class="img-rounded img-responsive" src="${video.images[0].url}" alt="${video.title}">
+                                    
                             `
                 content += innnerTextBegin
                 content += `
                             <h4>${video.title}</h4>
-                            <p><a href="#" class="btn btn-mini" onclick="requestPlay('${video.id}', '${video.contents[0].url}', '${video.contents[0].url}', '${video.contents[0].format}')">» Play</a></p>                            
+                            <p><a href="#" class="btn btn-mini" ${clickToPlay(video.id, video.contents[0].url, video.contents[0].format)}>» Play</a></p>                            
                     `
                 content += innerBoxEnd
             }
@@ -75,3 +77,5 @@ let buildCarousel = exports.buildCarousel = ()=>{
         console.warn(err)
     })
 }
+
+let clickToPlay = (id, url, format)=>`onclick="requestPlay('${id}', '${url}', '${format}')"`

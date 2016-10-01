@@ -1,25 +1,40 @@
 const playVideo = (url, format)=>{
-    setUpForVideoPlay(url)  
+    setupForVideoPlay(url, format)  
 }
 
-const setUpForVideoPlay = (url, format)=>{ 
+const setupForVideoPlay = (url, format)=>{ 
     $('#container').addClass('hidden')
     $('#videoPlaceHolder').append(buildVideoElement(url, format))
     $('#videoPlaceHolder').removeClass('none')
     $('#videoPlaceHolder').addClass('block')  
     $('#mavodVideo').bind("ended", ()=>{
-        setUpForVideoBrowse()
+        setupForVideoBrowse()
     })
     $('#mavodVideo').bind("paused", ()=>{
-        setUpForVideoBrowse()
+        setupForVideoBrowse()
     })    
 }
 
-const setUpForVideoBrowse = ()=>{
+const setupForVideoBrowse = ()=>{
     $('#container').removeClass('hidden')
     $('#videoPlaceHolder').removeClass('block')
     $('#videoPlaceHolder').addClass('none') 
     $('#mavodVideo').remove()  
+}
+
+const setupVideoHistoryPopover = (text, title='Viewing History')=>{
+    let template = '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+    $('#history').attr('html', true)
+    $('#history').attr('delay', 500)
+    $('#history').attr('data-trigger', 'focus')
+    $('#history').attr('template', template)
+    $('#history').attr('title', title)
+    $('#history').attr('data-content', text)
+    $('#history').popover('toggle')
+}
+
+const showVideoHistoryPopover = (visible=true)=>{
+    $('#history').popover((visible?'show':'hide'))
 }
 
 const buildVideoElement = (url, format)=>{

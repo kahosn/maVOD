@@ -8,16 +8,20 @@ a {
 }
 
 .hidden {
-    visibility: hidden
+    visibility: hidden;
 }
 .visible{
-    visibility: visible
+    visibility: visible;
 }
 .block {
-  display: block
+  display: block;
+  -webkit-animation: spin 2s linear ;
+  animation: spin 2s linear;  
 }
 .none {
-  display: none
+  display: none;
+  -webkit-animation: spin 2s linear ;
+  animation: spin 2s linear;
 }
 .center {    
   display: block;
@@ -26,13 +30,19 @@ a {
   width: 100%;
 }
 
+.logo {
+  margin: auto;
+}
+
 video#mavodVideo { 
+  top: 0px;
+  left: 0px;
   margin: auto; 
   width: auto; 
   height: auto;
   min-width: 100%; 
   min-height: 100%;
-  }
+}
 
 .large-input {
   text-align: center;

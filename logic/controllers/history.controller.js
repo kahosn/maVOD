@@ -7,7 +7,6 @@ exports.save = ((sessionId, videoId)=> {
 })
 
 exports.findBySessionId = ((sessionId)=>{
-    console.log(`in Controller sessionId: ${sessionId}`)
     let promise = History.find({sessionId:sessionId}).exec()
     return promise    
 })
