@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Mocha Tests for the site API endpoint (requires the server to be running, otherwise it fails regardless)
+*/
+
 const chai = require('chai')
 const chaiHttp = require('chai-http')
 const mavod = require('../mavod')

@@ -1,2 +1,6 @@
 # maVOD
-Media app video-on-demand
+media app Video-On-Demand (maVOD)
+©Khaled Aboul Hosn, 2016. All Rights Reserved.
+ 
+
+

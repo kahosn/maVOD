@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc The Main Node Server. Setup configurations and connects to MongoDB
+*/
+
 const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')

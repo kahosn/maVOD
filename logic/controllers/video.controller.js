@@ -1,6 +1,18 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Node server script that requests Videos from some API endpoint
+*/
+
 const reqPromise = require('request-promise')
 const video = require('../../models/video.model')
 
+/**
+ * @desc requests Videos from REST API endpoint
+ * @param string $restURL - the url for the API endpoint
+ * @return Promise - success or failure
+*/
 const requestVideos = exports.requestVideos = (restURL)=>{
     return reqPromise({uri:restURL, json:true})
     .then((videos)=>{
@@ -15,6 +27,11 @@ const requestVideos = exports.requestVideos = (restURL)=>{
     })
 }
 
+/**
+ * @desc gets a Video from list
+ * @param string $id - the video id to get
+ * @return Video model
+*/
 const retrieveVideo = exports.retrieveVideo = (id)=>{
     let vid
     video.getVideosEntries().forEach((v)=>{

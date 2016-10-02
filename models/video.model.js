@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Node server script that holds the Videos and their count
+*/
+
 let videosEntries = {}
 let totalCount = 0
 

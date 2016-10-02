@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Mocha Tests for the Video controller operations (save, retrieve)
+*/
+
 const expect = require('chai').expect
 const videoController = require('../logic/controllers/video.controller')
 const cfg = require('../config/mavodConfig.json')

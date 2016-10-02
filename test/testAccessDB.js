@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Mocha Tests for the MongoDB database operations (connect, create, find)
+*/
+
 const expect = require('chai').expect
 const mongoose = require('mongoose')
 const db = require('../logic/controllers/db.controller')

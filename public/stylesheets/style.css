@@ -1,10 +1,35 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+#spa.black-bg {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    border-top:0;
+    background-color: black;
+}
+
+#spa.colorized-bg {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    border-top:0;
+    background:#c4e17f;
+    background-image:-webkit-linear-gradient(left,#c4e17f,#c4e17f 12.5%,#f7fdca 12.5%,#f7fdca 25%,#fecf71 25%,#fecf71 37.5%,#f0776c 37.5%,#f0776c 50%,#db9dbe 50%,#db9dbe 62.5%,#c49cde 62.5%,#c49cde 75%,#669ae1 75%,#669ae1 87.5%,#62c2e4 87.5%,#62c2e4);
+    background-image:-moz-linear-gradient(left,#c4e17f,#c4e17f 12.5%,#f7fdca 12.5%,#f7fdca 25%,#fecf71 25%,#fecf71 37.5%,#f0776c 37.5%,#f0776c 50%,#db9dbe 50%,#db9dbe 62.5%,#c49cde 62.5%,#c49cde 75%,#669ae1 75%,#669ae1 87.5%,#62c2e4 87.5%,#62c2e4);
+    background-image:-o-linear-gradient(left,#c4e17f,#c4e17f 12.5%,#f7fdca 12.5%,#f7fdca 25%,#fecf71 25%,#fecf71 37.5%,#f0776c 37.5%,#f0776c 50%,#db9dbe 50%,#db9dbe 62.5%,#c49cde 62.5%,#c49cde 75%,#669ae1 75%,#669ae1 87.5%,#62c2e4 87.5%,#62c2e4);
+    background-image:linear-gradient(to right,#c4e17f,#c4e17f 12.5%,#f7fdca 12.5%,#f7fdca 25%,#fecf71 25%,#fecf71 37.5%,#f0776c 37.5%,#f0776c 50%,#db9dbe 50%,#db9dbe 62.5%,#c49cde 62.5%,#c49cde 75%,#669ae1 75%,#669ae1 87.5%,#62c2e4 87.5%,#62c2e4);
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+    -webkit-transition: all 150ms ease;
+    -moz-transition: all 150ms ease;
+    -ms-transition: all 150ms ease;
+    -o-transition: all 150ms ease;
+    transition: all 150ms ease; 
+}    
+a:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; /* IE 8 */
+    filter: alpha(opacity=50); /* IE7 */
+    opacity: 0.6;
+    text-decoration: none;
 }
 
 .hidden {
@@ -12,16 +37,6 @@ a {
 }
 .visible{
     visibility: visible;
-}
-.block {
-  display: block;
-  -webkit-animation: spin 2s linear ;
-  animation: spin 2s linear;  
-}
-.none {
-  display: none;
-  -webkit-animation: spin 2s linear ;
-  animation: spin 2s linear;
 }
 .center {    
   display: block;
@@ -34,6 +49,7 @@ a {
   margin: auto;
 }
 
+/* Video Related*/
 video#mavodVideo { 
   top: 0px;
   left: 0px;
@@ -43,15 +59,57 @@ video#mavodVideo {
   min-width: 100%; 
   min-height: 100%;
 }
-
-.large-input {
-  text-align: center;
-  width:500px;
-  height: 70px;
-  font-size:3.5em;
-  border-radius:8px;
+.video-expand {
+  display: block;
+  -webkit-animation: expand_spin 2s linear ;
+  animation: expand_spin 2s linear;  
 }
-
+.video-none {
+  display: none
+}
+.video-shrink {    
+  -webkit-transition: all 2000ms ease;
+  -moz-transition: all 2000ms ease;
+  -ms-transition: all 2000ms ease;
+  -o-transition: all 2000ms ease;
+  transition: all 2000ms ease; 
+  -webkit-animation: shrink_spin 2s linear ;
+  animation: shrink_spin 2s linear;  
+}
+/* Expand/Shrink And Spin Effect */
+@-webkit-keyframes expand_spin {
+  0% { 
+    -webkit-transform: scale(0.1,0.1) rotate(0deg);
+  }
+  100% { 
+    -webkit-transform: scale(1,1) rotate(360deg);
+  }
+}
+@keyframes expand_spin {
+  0% { 
+    transform: scale(0.1,0.1) rotate(0deg);
+  }
+  100% { 
+    transform: scale(1,1) rotate(360deg);
+  }
+}
+@-webkit-keyframes shrink_spin {
+  0% { 
+    -webkit-transform: scale(1,1) rotate(0deg);
+  }
+  100% { 
+    -webkit-transform: scale(0.1,0.1) rotate(360deg);
+  }
+}
+@keyframes shrink_spin {
+  0% { 
+    transform: scale(1,1) rotate(0deg);
+  }
+  100% { 
+    transform: scale(0.1,0.1) rotate(360deg);
+  }
+}
+/* Wait-for-loading Spinner */
 .video-loader {
   border: 16px solid #f3f3f3;
   border-radius: 50%;

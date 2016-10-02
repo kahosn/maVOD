@@ -1,12 +1,21 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Client script that handles everything related to the video (building the video display)
+*/
+
 const playVideo = (url, format)=>{
     setupForVideoPlay(url, format)  
 }
 
 const setupForVideoPlay = (url, format)=>{ 
+    $('#spa').removeClass('colorized-bg')
+    $('#spa').addClass('black-bg')
     $('#container').addClass('hidden')
     $('#videoPlaceHolder').append(buildVideoElement(url, format))
-    $('#videoPlaceHolder').removeClass('none')
-    $('#videoPlaceHolder').addClass('block')  
+    $('#videoPlaceHolder').removeClass('video-none')
+    $('#videoPlaceHolder').addClass('video-expand')  
     $('#mavodVideo').bind("ended", ()=>{
         setupForVideoBrowse()
     })
@@ -16,10 +25,16 @@ const setupForVideoPlay = (url, format)=>{
 }
 
 const setupForVideoBrowse = ()=>{
-    $('#container').removeClass('hidden')
-    $('#videoPlaceHolder').removeClass('block')
-    $('#videoPlaceHolder').addClass('none') 
-    $('#mavodVideo').remove()  
+    $('#videoPlaceHolder').removeClass('video-expand')
+    $('#videoPlaceHolder').addClass('video-shrink') 
+    setTimeout(()=>{
+        $('#videoPlaceHolder').removeClass('video-shrink')
+        $('#videoPlaceHolder').addClass('video-none')
+        $('#mavodVideo').remove()
+        $('#spa').removeClass('black-bg')
+        $('#spa').addClass('colorized-bg')
+        $('#container').removeClass('hidden')
+    }, 2000)  
 }
 
 const setupVideoHistoryPopover = (text, title='Viewing History')=>{

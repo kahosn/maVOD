@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Node server script that exposes the API endpoints
+*/
+
 const express = require('express')
 const router = express.Router()
 const videoController = require('../logic/controllers/video.controller')
@@ -15,11 +22,6 @@ router.get('/', (req, res, next)=> {
     .catch((err)=>{
         res.render('index', { title: 'maVOD', carousel: 'Sorry No Videos!' })
     }) 
-})
-
-/* GET test page. */
-router.get('/test', (req, res, next)=> {
-  res.render('test', { title: 'test' })
 })
 
 /* GET videos API. */

@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Ajax client retrieves/posts history to site API endpoint 
+ * and sends command to play the video.
+*/
 
 let requestPlay = (videoId, url, format='mp4')=>{
   let parameters = { videoID: videoId }

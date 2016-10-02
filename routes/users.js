@@ -1,3 +1,10 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Node server script that exposes the API endpoints
+*/
+
 const express = require('express')
 const router = express.Router()
 

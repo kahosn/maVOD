@@ -1,8 +1,20 @@
+/**
+ * @author Khaled Aboul Hosn
+ * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
+
+ * @desc Node server script that builds the carousel of Videos for the EJS View Engine
+*/
+
 const videoController = require('../logic/controllers/video.controller')
 const cfg = require('../config/mavodConfig.json')
 
 const videosURL = cfg.api.videosURL
 
+/**
+ * @desc builds the carousel of Videos for the EJS View Engine
+ * @param None
+ * @return Promise - success or failure
+*/
 let buildCarousel = exports.buildCarousel = ()=>{
     let carouselBegin = `
         <!--carousel-mavod -->     
@@ -58,7 +70,7 @@ let buildCarousel = exports.buildCarousel = ()=>{
                 content += innnerBoxBegin(itemIndex, video.id, video.contents[0].url, video.contents[0].format)
                 content += `
                                     
-                                        <img class="img-rounded img-responsive" src="${video.images[0].url}" alt="${video.title}">
+                                        <img class="img-rounded img-responsive poster-img" src="${video.images[0].url}" alt="${video.title}">
                                     
                             `
                 content += innnerTextBegin
