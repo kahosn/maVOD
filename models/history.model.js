@@ -4,7 +4,7 @@
 
  * @desc Node server script that builds Mongoose History Model for MongoDB
 */
-
+"use strict"
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const cfg = require('../config/mavodConfig.json')

@@ -4,7 +4,7 @@
 
  * @desc Node server script that exposes the API endpoints
 */
-
+"use strict"
 const express = require('express')
 const router = express.Router()
 const videoController = require('../logic/controllers/video.controller')

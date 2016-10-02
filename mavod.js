@@ -4,7 +4,7 @@
 
  * @desc The Main Node Server. Setup configurations and connects to MongoDB
 */
-
+"use strict"
 const express = require('express')
 const path = require('path')
 const favicon = require('serve-favicon')

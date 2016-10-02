@@ -5,7 +5,7 @@
  * @desc Ajax client retrieves/posts history to site API endpoint 
  * and sends command to play the video.
 */
-
+"use strict"
 let requestPlay = (videoId, url, format='mp4')=>{
   let parameters = { videoID: videoId }
   $.post('/history', parameters, (status)=>{

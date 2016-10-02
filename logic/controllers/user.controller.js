@@ -4,7 +4,7 @@
 
  * @desc Node server script that saves User model to/from MongoDB database
 */
-
+"use strict"
 const mongoose = require('mongoose')
 const User = require('../../models/user.model')
 const cfg = require('../config/mavodConfig.json')

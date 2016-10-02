@@ -4,7 +4,7 @@
 
  * @desc Node server script that builds the carousel of Videos for the EJS View Engine
 */
-
+"use strict"
 const videoController = require('../logic/controllers/video.controller')
 const cfg = require('../config/mavodConfig.json')
 

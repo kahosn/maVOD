@@ -4,7 +4,7 @@
 
  * @desc Node server script that requests Videos from some API endpoint
 */
-
+"use strict"
 const reqPromise = require('request-promise')
 const video = require('../../models/video.model')
 

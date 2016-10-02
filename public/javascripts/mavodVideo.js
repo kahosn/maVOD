@@ -4,7 +4,7 @@
 
  * @desc Client script that handles everything related to the video (building the video display)
 */
-
+"use strict"
 const playVideo = (url, format)=>{
     setupForVideoPlay(url, format)  
 }

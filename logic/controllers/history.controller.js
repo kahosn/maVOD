@@ -4,7 +4,7 @@
 
  * @desc Node server script that saves and finds History model to/from MongoDB database
 */
-
+"use strict"
 const reqPromise = require('request-promise')
 const History = require('../../models/history.model')
 

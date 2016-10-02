@@ -4,7 +4,7 @@
 
  * @desc Node server script that connects and disconnects to/from MongoDB database
 */
-
+"use strict"
 const mongoose = require('mongoose')
 const cfg = require('../../config/mavodConfig.json')
 

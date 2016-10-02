@@ -4,7 +4,7 @@
 
  * @desc Client script that shows the carousel when everything is loaded.
 */
-
+"use strict"
 $(window).on("load", ()=> {
 //$(document).ready(()=>{  
     $('#carouselPlaceHolder').removeClass('hidden')
