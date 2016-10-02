@@ -86,7 +86,7 @@ let buildCarousel = exports.buildCarousel = ()=>{
             }
         }
         catch(e){
-            console.log(`ERROR in mavodBuilder itemIndex${itemIndex} length${length}:  ${e}`)
+            console.log(`ERROR in mavodBuilder itemIndex${itemIndex}:  ${e}`)
         }
 
         content += carouselEnd
