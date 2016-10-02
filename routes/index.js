@@ -27,12 +27,23 @@ router.get('/', (req, res, next)=> {
 /* GET videos API. */
 router.get('/videos', (req, res, next)=> {
     let requestPromise = videoController.requestVideos(videosURL)
-    .then((data)=>{            
+    requestPromise.then((data)=>{            
       res.send (data)
     })        
     .catch((err)=>{
         res.send ('')
     })  
+})
+
+/* GET video API. */
+router.get('/video/:id', (req, res, next)=>{ 
+    let requestPromise = videoController.retrieveVideo(req.params.id)
+    requestPromise.then((data)=>{            
+      res.send (data)
+    })        
+    .catch((err)=>{
+        res.send ('404')
+    })
 })
 
 /* POST history API. */

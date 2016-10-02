@@ -42,9 +42,9 @@ let buildCarousel = exports.buildCarousel = ()=>{
     let innnerBoxBegin  = (index, id, url, format)=> `     
                                 <li class="col-sm-3"><!--Inner Loop Box -->
                                   <div class="fff">
-                                    <a class="thumbnail" href="#" tabindex="${index+1}" ${(index+1)==1?'autofocus':''}  ${clickToPlay(id, url, format)}><div><!--Pic -->`
+                                    <a class="thumbnail" href="#" tabindex="${index+1}" ${(index+1)==1?'autofocus':''}  ${clickToPlay(id, url, format)}><!--Pic -->`
     let innnerTextBegin = `         
-                                    </div></a> 
+                                    </a> 
                                     <div class="caption"><!--Text -->` 
     let innerBoxEnd     = `       
                                     </div>
@@ -78,16 +78,21 @@ let buildCarousel = exports.buildCarousel = ()=>{
                     content += innnerTextBegin
                     content += `
                                 <h4>${video.title}</h4>
-                                <p><a href="#" class="btn btn-mini" ${clickToPlay(video.id, video.contents[0].url, video.contents[0].format)}>» Play</a></p>                            
+                                <button type="button" class="btn btn-success" ${clickToPlay(video.id, video.contents[0].url, video.contents[0].format)}>
+                                    <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                                    Play
+                                </button>                                    
+                                <button type="button" class="btn btn-info" ${clickForDetails(video.id)}>
+                                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                                    <em>info...</em>
+                                </button>                                                                
                         `
                     content += innerBoxEnd
                 }
                 content += outerSlideEnd
             }
         }
-        catch(e){
-            console.log(`ERROR in mavodBuilder itemIndex${itemIndex}:  ${e}`)
-        }
+        catch(e){}
 
         content += carouselEnd
         return content
@@ -98,3 +103,4 @@ let buildCarousel = exports.buildCarousel = ()=>{
 }
 
 let clickToPlay = (id, url, format)=>`onclick="requestPlay('${id}', '${url}', '${format}')"`
+let clickForDetails = (id)=>`onclick="requestVideoDetails('${id}')"`

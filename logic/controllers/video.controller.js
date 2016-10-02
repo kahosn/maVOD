@@ -30,15 +30,20 @@ const requestVideos = exports.requestVideos = (restURL)=>{
 /**
  * @desc gets a Video from list
  * @param string $id - the video id to get
- * @return Video model
+ * @return  Promise - success or failure
 */
 const retrieveVideo = exports.retrieveVideo = (id)=>{
-    let vid
-    video.getVideosEntries().forEach((v)=>{
-        if(v.id==id)
-            vid = v       
+    return new Promise((resolve, reject)=>{
+        let vid
+        video.getVideosEntries().forEach((v)=>{
+            if(v.id==id)
+                vid = v       
+        })
+        if(vid)
+            resolve(vid)
+        else
+            reject('Video ${id} Not Found!')    
     })
-    return vid
 }
 
 exports.getVideoModel = ()=> video

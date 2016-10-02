@@ -64,3 +64,23 @@ const buildVideoElement = (url, format)=>{
     video.appendChild(source)
     return video   
 }
+
+const displayVideoDetails = (video)=>{
+    let content = ` <div class="row">
+                    <div class="col-sm-4 col-md-4 col-lg-4"><img class="img-rounded img-responsive poster-img" src="${video.images[0].url}" alt="${video.title}"></div>
+                    <div class="col-sm-8 col-md-8 col-lg-8"><blockquote><p>${video.description}</p></blockquote></div>
+                    </div>`
+    content += 'Credits:'
+    for (let i=0;i<video.credits.length;i++) {
+        content += `<h4>${video.credits[i].role}: <strong>${video.credits[i].name}</strong><br></h4>`
+    }
+    content += `Rating: <mark>${video.parentalRatings[0].rating}</mark><br>`
+    content += 'Categories:'
+    for (let i=0;i<video.categories.length;i++) {
+        content += ` |<em>${video.categories[i].title}</em>`
+    }
+    $('#video-details-label').html(`<span class="lead">${video.title}</span>`)
+    $('#video-details').html(content)
+    $('#video-details-play').attr('onclick', `requestPlay('${video.id}','${video.contents[0].url}', '${video.contents[0].format}')`)
+    $('#video-details-modal').modal('show')
+}

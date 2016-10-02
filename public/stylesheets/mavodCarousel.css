@@ -1,6 +1,6 @@
 
 /* Video Pic in Carousel */
-poster-img { 
+.poster-img { 
     margin: auto;
     max-width:100%;     
     display: block;
@@ -26,6 +26,7 @@ a.thumbnail:focus {
     border-radius: 6px;
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px; 
+    align-content: center;
 }
 ul.thumbnails { 
     margin-bottom: 0px;

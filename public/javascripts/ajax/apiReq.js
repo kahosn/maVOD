@@ -17,6 +17,13 @@ let requestPlay = (videoId, url, format='mp4')=>{
   playVideo(url, format)
 }
 
+let requestVideoDetails = (videoId)=>{
+  let parameters = { videoID: videoId }
+  $.get(`/video/${videoId}`, (video)=>{
+    displayVideoDetails(video)
+  })
+}
+
 let requestHistory = ()=>{
   $.get('/history', {}, (list)=>{
       let length = list.length
