@@ -9,6 +9,7 @@ const videoController = require('../logic/controllers/video.controller')
 const cfg = require('../config/mavodConfig.json')
 
 const videosURL = cfg.api.videosURL
+const slideVideoCount = cfg.carousel.video.slide.videoCount
 
 /**
  * @desc builds the carousel of Videos for the EJS View Engine
@@ -55,33 +56,39 @@ let buildCarousel = exports.buildCarousel = ()=>{
                           <!--Outer Loop Slide -->
                           `                       
     return videoController.requestVideos(videosURL)
-    .then((data)=>{       
-        let itemActive = true                                                                     
-        let content = ''
-        let itemIndex = -1
-        let video
-        content += carouselBegin
-        for(let i=0;i<3;i++){
-            content += outerSlideBegin(itemActive)
-            itemActive = false
-            for(let ii=0;ii<4;ii++){
-                itemIndex++
-                video = data[itemIndex]
-                content += innnerBoxBegin(itemIndex, video.id, video.contents[0].url, video.contents[0].format)
-                content += `
-                                    
-                                        <img class="img-rounded img-responsive poster-img" src="${video.images[0].url}" alt="${video.title}">
-                                    
-                            `
-                content += innnerTextBegin
-                content += `
-                            <h4>${video.title}</h4>
-                            <p><a href="#" class="btn btn-mini" ${clickToPlay(video.id, video.contents[0].url, video.contents[0].format)}>» Play</a></p>                            
-                    `
-                content += innerBoxEnd
+    .then((data)=>{   
+        const loop = Math.ceil(data.length/slideVideoCount)                                                             
+        let content = carouselBegin
+        let video 
+        let itemIndex = -1      
+        let itemActive = true
+        try{
+            for(let i=0;i<loop;i++){
+                content += outerSlideBegin(itemActive)
+                itemActive = false
+                for(let ii=0;ii<slideVideoCount;ii++){
+                    itemIndex++
+                    video = data[itemIndex]
+                    content += innnerBoxBegin(itemIndex, video.id, video.contents[0].url, video.contents[0].format)
+                    content += `
+                                        
+                                            <img class="img-rounded img-responsive poster-img" src="${video.images[0].url}" alt="${video.title}">
+                                        
+                                `
+                    content += innnerTextBegin
+                    content += `
+                                <h4>${video.title}</h4>
+                                <p><a href="#" class="btn btn-mini" ${clickToPlay(video.id, video.contents[0].url, video.contents[0].format)}>» Play</a></p>                            
+                        `
+                    content += innerBoxEnd
+                }
+                content += outerSlideEnd
             }
-            content += outerSlideEnd
         }
+        catch(e){
+            console.log(`ERROR in mavodBuilder itemIndex${itemIndex} length${length}:  ${e}`)
+        }
+
         content += carouselEnd
         return content
     })        

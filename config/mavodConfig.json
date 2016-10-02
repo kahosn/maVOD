@@ -30,6 +30,13 @@
     "error":{
         "dbConnection":"connection error:"
     },
+    "carousel":{
+        "video":{
+            "slide":{
+                "videoCount":4
+            }
+        }
+    },
 
 
 "entries": {
