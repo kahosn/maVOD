@@ -1,3 +1,4 @@
+
 /**
  * @author Khaled Aboul Hosn
  * @copyright ©Khaled Aboul Hosn, 2016. All Rights Reserved.
@@ -5,10 +6,24 @@
  * @desc Client script that handles everything related to the video (building the video display)
 */
 "use strict"
+/**
+ * @desc prepares to play a video
+ * @param string $url the url of the video stream data
+ * @param string $format the format of the video
+ * @return None
+*/
 const playVideo = (url, format)=>{
     setupForVideoPlay(url, format)  
 }
 
+/**
+ * @desc follows the principal of SPA in setting up for video playback,
+ * applies effects to show the video, 
+ * then binds the events of video finishing to a command to reset page
+ * @param string $url the url of the video stream data
+ * @param string $format the format of the video
+ * @return None
+*/
 const setupForVideoPlay = (url, format)=>{ 
     $('#spa').removeClass('colorized-bg')
     $('#spa').addClass('black-bg')
@@ -24,6 +39,12 @@ const setupForVideoPlay = (url, format)=>{
     })    
 }
 
+/**
+ * @desc follows the principal of SPA in setting up for video browse,
+ * applies effects to hide the video
+ * @param None
+ * @return None
+*/
 const setupForVideoBrowse = ()=>{
     $('#videoPlaceHolder').removeClass('video-expand')
     $('#videoPlaceHolder').addClass('video-shrink') 
@@ -37,6 +58,12 @@ const setupForVideoBrowse = ()=>{
     }, 2000)  
 }
 
+/**
+ * @desc setup the history popover then shows/hides it
+ * @param string $text the history text
+ * @param string $title the history title default:Viewing History
+ * @return None
+*/
 const setupVideoHistoryPopover = (text, title='Viewing History')=>{
     let template = '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
     $('#history').attr('html', true)
@@ -48,10 +75,21 @@ const setupVideoHistoryPopover = (text, title='Viewing History')=>{
     $('#history').popover('toggle')
 }
 
+/**
+ * @desc shows/hides the history popover
+ * @param boolean $visible default:true
+ * @return None
+*/
 const showVideoHistoryPopover = (visible=true)=>{
     $('#history').popover((visible?'show':'hide'))
 }
 
+/**
+ * @desc builds a video DOM Element
+ * @param string $url the url of the video stream data
+ * @param string $format the format of the video
+ * @return video DOM Element
+*/
 const buildVideoElement = (url, format)=>{
     let video = document.createElement('video')
     video.id = "mavodVideo"
@@ -65,6 +103,11 @@ const buildVideoElement = (url, format)=>{
     return video   
 }
 
+/**
+ * @desc builds the modal box, includes onclick script, and shows it
+ * @param json $video the json file of the video
+ * @return None
+*/
 const displayVideoDetails = (video)=>{
     let content = ` <div class="row">
                     <div class="col-sm-4 col-md-4 col-lg-4"><img class="img-rounded img-responsive poster-img" src="${video.images[0].url}" alt="${video.title}"></div>

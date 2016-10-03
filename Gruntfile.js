@@ -6,18 +6,17 @@ module.exports = (grunt)=> {
         separator: ';'
       },
       dist: {
-        src: ['<%= pkg.name %>.js','models/*.js', 'logic/**/*.js',
-             'ajax/*'],
-        dest: 'dist/<%= pkg.name %>.js'
+        src: ['public/javascripts/ajax/*.js', 'public/javascripts/*.js'],
+        dest: 'public/javascripts/dist/<%= pkg.name %>_client.js'
       }
     },
     uglify: {
       options: {
-        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+        banner: '/*! <%= pkg.name %>_client <%= grunt.template.today("dd-mm-yyyy") %>\n Includes <%= concat.dist.src %> */\n'
       },
       dist: {
         files: {
-          'dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+          'public/javascripts/dist/<%= pkg.name %>_client.min.js': ['<%= concat.dist.dest %>']
         }
       }
     },
@@ -51,5 +50,6 @@ module.exports = (grunt)=> {
   grunt.registerTask('test', ['jshint', 'qunit'])
   grunt.registerTask('all', ['jshint', 'qunit', 'concat', 'uglify'])
   grunt.registerTask('default', ['concat', 'uglify'])
-
+  grunt.registerTask('uglify', ['uglify'])
+  grunt.registerTask('concat', ['concat'])
 }
